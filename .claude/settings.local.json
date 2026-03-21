@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Supabase__list_projects",
+      "Bash(ls c:/Users/martim.dietterle/Documents/economize/.env*)"
+    ]
+  }
+}

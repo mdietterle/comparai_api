@@ -1,0 +1,22 @@
+{
+  "supermarkets": [
+    {
+      "id": "angeloni",
+      "name": "Supermercado Angeloni",
+      "searchUrl": "https://www.angeloni.com.br/super/{query}?_q={query}&map=ft",
+      "platform": "vtex"
+    },
+    {
+      "id": "giassi",
+      "name": "Supermercado Giassi",
+      "searchUrl": "https://www.giassi.com.br//{query}?_q={query}&map=ft",
+      "platform": "vtex"
+    },
+    {
+      "id": "cooper",
+      "name": "Supermercado Cooper",
+      "searchUrl": "https://minhacooper.com.br/loja/a.verde-jaragua/produto/busca?q={query}",
+      "platform": "custom"
+    }
+  ]
+}
