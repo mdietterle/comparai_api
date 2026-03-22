@@ -143,6 +143,7 @@ function compareProducts(resultsByStore, searchTerms) {
         name: entry._item.originalName || entry._item.baseName,
         unit: entry._item.unit,
         price: thisPrice,
+        encontrado: 'Sim',
         priceInOtherStores: cheapestOther
           ? { store: cheapestOther.store, price: cheapestOther.price }
           : null,
@@ -150,6 +151,22 @@ function compareProducts(resultsByStore, searchTerms) {
           ? Math.round((cheapestOther.price - thisPrice) * 100) / 100
           : null,
       };
+    }
+
+    // Para lojas onde o item não foi encontrado, adiciona entrada com preço 0
+    for (const storeName of storeNames) {
+      const alreadyHas = storeProducts[storeName].some(e => e.searchTerm === term);
+      if (!alreadyHas) {
+        storeProducts[storeName].push({
+          searchTerm: term,
+          name: null,
+          unit: null,
+          price: 0,
+          encontrado: 'Não',
+          priceInOtherStores: null,
+          savings: null,
+        });
+      }
     }
 
     // Formatações para manter a estrutura original de productComparison
@@ -202,6 +219,7 @@ function compareProducts(resultsByStore, searchTerms) {
             name: p.name,
             unit: p.unit,
             price: p.price,
+            encontrado: p.encontrado,
           })),
         }
       : null,
@@ -217,6 +235,7 @@ function compareProducts(resultsByStore, searchTerms) {
           name: p.name,
           unit: p.unit,
           price: p.price,
+          encontrado: p.encontrado,
         })),
       })),
 
